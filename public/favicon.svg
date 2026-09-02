@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Subtle crisp drop shadow for badge depth -->
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#0D5C3A" flood-opacity="0.15" />
+    </filter>
+    <!-- Premium Emerald Gradient -->
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D5C3A" />
+      <stop offset="100%" stop-color="#084028" />
+    </linearGradient>
+  </defs>
+
+  <!-- Clean White Background with Squircle Curves -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" filter="url(#subtle-shadow)" />
+
+  <!-- Subtle Emerald Inner Accent Ring -->
+  <rect x="5" y="5" width="54" height="54" rx="12" fill="none" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.25" />
+
+  <!-- Bold Engineered "MK" Letters in Emerald Green -->
+  <text 
+    x="32" 
+    y="33.5" 
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+    font-size="28" 
+    font-weight="900" 
+    letter-spacing="-1.5px"
+    fill="url(#emeraldGrad)" 
+    text-anchor="middle" 
+    dominant-baseline="central"
+  >MK</text>
+</svg>
