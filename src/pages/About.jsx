@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import {
   Shield, CheckCircle, Award, Calendar,
   Rocket, Handshake, ArrowRight, ExternalLink,
@@ -6,6 +7,8 @@ import {
 } from 'lucide-react';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
+import StaggerContainer, { staggerItemVariants } from '@/components/ui/StaggerContainer';
+import ParallaxSection from '@/components/ui/ParallaxSection';
 
 const milestones = [
   { year: '2015', title: 'Company Founded', desc: 'Inception in Visakhapatnam with focus on custom embedded hardware, microcontroller programming, and security electronics.' },
@@ -51,23 +54,23 @@ const stats = [
 
 export default function About() {
   return (
-    <div className="bg-[#F8FAFC]">
+    <div className="bg-[#F8FAFC] pt-20">
       {/* ─── Hero Banner (Compact & High Contrast) ─── */}
       <section className="relative pt-20 pb-10 sm:pt-28 sm:pb-16 bg-[#071911] text-white border-b border-[#14452F] overflow-hidden bg-grid-pattern-dark">
         <div className="container-custom text-center relative z-10">
           <ScrollReveal variant="fade-up">
-            <span className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4">
+            <span className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4 backdrop-blur-sm">
               Authorized Integrator • Shri MK Embedded Solutions
             </span>
           </ScrollReveal>
 
-          <ScrollReveal variant="fade-up" delay={0.1}>
+          <ScrollReveal variant="blur-up" delay={0.1}>
             <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight mb-3 sm:mb-4 max-w-3xl mx-auto leading-tight">
               Engineering Trust, Security & Smart Living Since 2015
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal variant="fade-up" delay={0.2}>
+          <ScrollReveal variant="blur-up" delay={0.2}>
             <p className="text-slate-300 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-6">
               Headquartered in Dwarka Nagar, Visakhapatnam, we design, fabricate, and commission intelligent security, motorized entrance automation, and custom embedded systems for premium residences and industrial plants.
             </p>
@@ -192,9 +195,9 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            {pillars.map((p, i) => (
-              <ScrollReveal key={p.title} variant="fade-up" delay={i * 0.08}>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto" stagger={0.1}>
+            {pillars.map((p) => (
+              <motion.div key={p.title} variants={staggerItemVariants}>
                 <div className="card-tech p-4 sm:p-6 h-full flex flex-col justify-between group hover:border-[#0D5C3A]">
                   <div>
                     <div className="flex items-center justify-between mb-3 sm:mb-4">
@@ -214,30 +217,32 @@ export default function About() {
                     </p>
                   </div>
                 </div>
-              </ScrollReveal>
+              </motion.div>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ─── Compact Live Stats Strip ─── */}
       <section className="py-8 sm:py-12 bg-[#071911] text-white border-y border-[#14452F]">
         <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
-            {stats.map((s, i) => (
-              <ScrollReveal key={s.label} variant="fade-up" delay={i * 0.08}>
-                <div className="p-2 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
-                  <s.icon className="w-4 h-4 sm:w-6 sm:h-6 mx-auto mb-1.5 text-emerald-400" />
-                  <div className="font-heading text-xl sm:text-3xl lg:text-4xl font-black text-white mb-0.5">
-                    <AnimatedCounter end={s.value} suffix={s.suffix} />
+          <ParallaxSection speed={0.06}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+              {stats.map((s, i) => (
+                <ScrollReveal key={s.label} variant="blur-up" delay={i * 0.08}>
+                  <div className="p-2 sm:p-3 rounded-xl hover:bg-white/5 transition-colors">
+                    <s.icon className="w-4 h-4 sm:w-6 sm:h-6 mx-auto mb-1.5 text-emerald-400" />
+                    <div className="font-heading text-xl sm:text-3xl lg:text-4xl font-black text-white mb-0.5">
+                      <AnimatedCounter end={s.value} suffix={s.suffix} />
+                    </div>
+                    <p className="text-slate-300 font-medium text-[10px] sm:text-xs uppercase tracking-wider font-mono">
+                      {s.label}
+                    </p>
                   </div>
-                  <p className="text-slate-300 font-medium text-[10px] sm:text-xs uppercase tracking-wider font-mono">
-                    {s.label}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </ParallaxSection>
         </div>
       </section>
 

@@ -54,7 +54,7 @@ const processSteps = [
 
 export default function Services() {
   return (
-    <div className="bg-[#F8FAFC]">
+    <div className="bg-[#F8FAFC] pt-20">
       {/* ─── Hero Banner ─── */}
       <section className="relative pt-20 pb-10 sm:pt-32 sm:pb-20 bg-[#071911] text-white border-b border-[#14452F] overflow-hidden bg-grid-pattern-dark">
         <div className="container-custom relative z-10 text-center">
@@ -64,13 +64,13 @@ export default function Services() {
             </span>
           </ScrollReveal>
 
-          <ScrollReveal variant="fade-up" delay={0.1}>
+          <ScrollReveal variant="blur-up" delay={0.1}>
             <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight mb-3 sm:mb-6 max-w-3xl mx-auto">
               Professional Engineering & AMC Services
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal variant="fade-up" delay={0.2}>
+          <ScrollReveal variant="blur-up" delay={0.2}>
             <p className="text-slate-300 text-xs sm:text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-8">
               From custom PCB fabrication and hardware prototyping to mission-critical industrial equipment AMC — our engineering team keeps your systems running flawlessly.
             </p>
@@ -102,7 +102,7 @@ export default function Services() {
         <div className="container-custom">
           <div className="space-y-6 sm:space-y-12">
             {services.map((s, i) => (
-              <ScrollReveal key={s.title} variant="fade-up" delay={0.05}>
+              <ScrollReveal key={s.title} variant={i % 2 === 0 ? 'slide-right' : 'fade-right'} delay={0.05}>
                 <div className={`card-tech overflow-hidden flex flex-col ${
                   i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
                 } hover:shadow-xl`}>

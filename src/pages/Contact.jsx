@@ -58,7 +58,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-[#F8FAFC]">
+    <div className="bg-[#F8FAFC] pt-20">
       {/* ─── Hero Banner ─── */}
       <section className="relative pt-20 pb-10 sm:pt-32 sm:pb-20 bg-[#071911] text-white border-b border-[#14452F] overflow-hidden bg-grid-pattern-dark">
         <div className="container-custom text-center relative z-10">
@@ -67,12 +67,12 @@ export default function Contact() {
               Direct Engineering Consultation
             </span>
           </ScrollReveal>
-          <ScrollReveal variant="fade-up" delay={0.1}>
+          <ScrollReveal variant="blur-up" delay={0.1}>
             <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight mb-3 sm:mb-6 max-w-3xl mx-auto">
               Get In Touch With Our Technical Team
             </h1>
           </ScrollReveal>
-          <ScrollReveal variant="fade-up" delay={0.2}>
+          <ScrollReveal variant="blur-up" delay={0.2}>
             <p className="text-slate-300 text-xs sm:text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Have a question, need an urgent site survey in Visakhapatnam, or looking for custom industrial IoT integration? Connect with our engineers today.
             </p>
@@ -88,7 +88,7 @@ export default function Contact() {
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {contactInfo.map((c, i) => (
-              <ScrollReveal key={c.title} variant="fade-up" delay={i * 0.1}>
+              <ScrollReveal key={c.title} variant="blur-up" delay={i * 0.1}>
                 <div className="bg-surface rounded-xl p-5 card-shadow text-center hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300 cursor-hover h-full">
                   <div className="w-12 h-12 rounded-xl bg-brand-light text-brand mx-auto mb-4 flex items-center justify-center">
                     <c.icon size={22} />

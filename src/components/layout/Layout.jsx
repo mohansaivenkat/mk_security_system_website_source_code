@@ -16,7 +16,7 @@ export default function Layout() {
     <>
       <CustomCursor />
       <Navbar />
-      <main className="min-h-screen pt-20">
+      <main className="min-h-screen">
         <Outlet />
       </main>
       <Footer />

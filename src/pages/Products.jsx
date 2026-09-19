@@ -150,7 +150,7 @@ export default function Products() {
     : productCatalog.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="bg-[#F8FAFC]">
+    <div className="bg-[#F8FAFC] pt-20">
       {/* ─── Page Hero Banner ─── */}
       <section className="relative pt-20 pb-10 sm:pt-32 sm:pb-20 bg-[#071911] text-white border-b border-[#14452F] overflow-hidden bg-grid-pattern-dark">
         <div className="container-custom relative z-10 text-center">
@@ -160,13 +160,13 @@ export default function Products() {
             </span>
           </ScrollReveal>
 
-          <ScrollReveal variant="fade-up" delay={0.1}>
+          <ScrollReveal variant="blur-up" delay={0.1}>
             <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight mb-3 sm:mb-6 max-w-3xl mx-auto">
               Engineered Security & Smart Living Systems
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal variant="fade-up" delay={0.2}>
+          <ScrollReveal variant="blur-up" delay={0.2}>
             <p className="text-slate-300 text-xs sm:text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-8">
               Explore our tested hardware portfolio backed by manufacturer warranties, precision installation, and 24/7 dedicated engineering support.
             </p>

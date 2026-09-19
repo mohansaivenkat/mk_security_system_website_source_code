@@ -4,11 +4,18 @@ import {
   Shield, DoorOpen, Factory, Tv,
   ChevronRight, Cpu, Wifi, Smartphone,
   Zap, Users, Award, Clock, PhoneCall, CheckCircle,
-  ExternalLink, ArrowRight, Lock, Eye, Play, Sparkles, MessageSquare
+  ArrowRight, Lock, Eye, Sparkles, MessageSquare,
+  ClipboardCheck, PenTool, Wrench, HeadphonesIcon,
+  Star, BadgeCheck, Globe, TrendingUp,
 } from 'lucide-react';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import SectionHeading from '@/components/ui/SectionHeading';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
+import HeroCarousel from '@/components/ui/HeroCarousel';
+import ParallaxSection from '@/components/ui/ParallaxSection';
+import StaggerContainer, { staggerItemVariants } from '@/components/ui/StaggerContainer';
+
+/* ─── Data ─── */
 
 const corePillars = [
   {
@@ -95,145 +102,58 @@ const stats = [
   { label: 'Custom PCB & IoT Builds', value: 80, suffix: '+', icon: Award },
 ];
 
+const processSteps = [
+  {
+    icon: ClipboardCheck,
+    step: '01',
+    title: 'Site Survey',
+    desc: 'Our senior engineers visit your property, assess entry points, wiring, and architectural constraints.',
+  },
+  {
+    icon: PenTool,
+    step: '02',
+    title: 'Custom Design',
+    desc: 'We architect a bespoke system blueprint with a transparent bill of materials and 3D layout previews.',
+  },
+  {
+    icon: Wrench,
+    step: '03',
+    title: 'Professional Install',
+    desc: 'Certified technicians deploy and configure all hardware with concealed wiring and clean finish.',
+  },
+  {
+    icon: HeadphonesIcon,
+    step: '04',
+    title: '24/7 Support',
+    desc: 'Lifetime AMC, remote monitoring, firmware updates, and same-day on-site support across AP.',
+  },
+];
+
+const trustBadges = [
+  { icon: Star, text: '500+ Homes Secured' },
+  { icon: BadgeCheck, text: 'Hikvision Authorized' },
+  { icon: Shield, text: 'Dahua Certified Partner' },
+  { icon: Lock, text: 'Yale Certified Installer' },
+  { icon: Globe, text: '10+ Years in Vizag' },
+  { icon: Award, text: 'ISO Quality Standards' },
+  { icon: TrendingUp, text: 'AMC Renewal Rate 96%' },
+  { icon: CheckCircle, text: '100% Genuine Hardware' },
+];
+
 export default function Home() {
   return (
     <div className="bg-[#F8FAFC]">
-      {/* ─── Hero Section (Full Viewport Height Side-by-Side on Desktop, Compact on Mobile) ─── */}
-      <section className="relative min-h-0 lg:min-h-[calc(100vh-4.5rem)] flex items-center justify-center bg-white overflow-hidden bg-grid-pattern pt-20 pb-12 sm:pt-24 sm:pb-16 lg:py-0">
-        {/* Subtle Ambient Radial Glows */}
-        <div className="absolute top-1/4 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-500/8 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="container-custom relative z-10 w-full">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-16">
-            
-            {/* Left Column: High-Contrast Copy & Actions */}
-            <div className="flex-1 max-w-2xl text-center lg:text-left">
-              {/* Trust Pill */}
-              <ScrollReveal variant="fade-up" delay={0.05}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 mb-4 sm:mb-6 shadow-xs">
-                  <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-600"></span>
-                  </span>
-                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#0D5C3A]">
-                    Authorized Automation & Security Integrator • Since 2015
-                  </span>
-                </div>
-              </ScrollReveal>
-
-              {/* Main Headline */}
-              <ScrollReveal variant="fade-up" delay={0.15}>
-                <h1 className="font-heading font-black text-slate-900 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-[1.15] mb-4 sm:mb-6">
-                  Intelligent Security & Smart Automation for{' '}
-                  <span className="gradient-text block mt-0.5 sm:mt-1">Modern Living</span>
-                </h1>
-              </ScrollReveal>
-
-              {/* High-Contrast Description */}
-              <ScrollReveal variant="fade-up" delay={0.25}>
-                <p className="text-slate-700 font-medium text-xs sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
-                  From biometric security and AI-powered 4K surveillance to heavy-duty motorized gates and custom industrial automation — we engineer robust systems that safeguard and elevate your living and working spaces.
-                </p>
-              </ScrollReveal>
-
-              {/* Action Buttons Row */}
-              <ScrollReveal variant="fade-up" delay={0.35}>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-4 mb-6 sm:mb-10">
-                  <Link to="/products" className="btn-primary">
-                    <span>Explore Products</span>
-                    <ChevronRight size={15} />
-                  </Link>
-
-                  <Link to="/contact" className="btn-secondary">
-                    <span>Book Free Site Survey</span>
-                  </Link>
-
-                  <a
-                    href="tel:+918919890010"
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-4 sm:py-3 rounded-md sm:rounded-lg text-slate-800 font-semibold text-[11px] sm:text-sm hover:text-[#0D5C3A] hover:bg-slate-100 transition-colors"
-                  >
-                    <PhoneCall size={13} className="text-[#0D5C3A]" />
-                    <span>+91 8919890010</span>
-                  </a>
-                </div>
-              </ScrollReveal>
-
-              {/* Quick Trust Credentials */}
-              <ScrollReveal variant="fade-up" delay={0.45}>
-                <div className="pt-4 sm:pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-2 sm:gap-4 text-left">
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    <CheckCircle size={14} className="text-[#0D5C3A] shrink-0" />
-                    <span className="text-[10px] sm:text-xs font-semibold text-slate-800">500+ Projects in AP</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    <CheckCircle size={14} className="text-[#0D5C3A] shrink-0" />
-                    <span className="text-[10px] sm:text-xs font-semibold text-slate-800">100% Genuine Hardware</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    <CheckCircle size={14} className="text-[#0D5C3A] shrink-0" />
-                    <span className="text-[10px] sm:text-xs font-semibold text-slate-800">24/7 AMC Support</span>
-                  </div>
-                </div>
-              </ScrollReveal>
-            </div>
-
-            {/* Right Column: Square Video Container (Compact on mobile) */}
-            <ScrollReveal variant="fade-left" delay={0.2} className="flex-1 w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[480px] mx-auto">
-              <div className="relative group">
-                {/* Tech Glowing Frame Accent */}
-                <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-r from-emerald-600 to-teal-500 rounded-2xl sm:rounded-3xl blur-md sm:blur-lg opacity-25 group-hover:opacity-40 transition duration-500 pointer-events-none" />
-
-                {/* Square Container */}
-                <div className="relative aspect-square w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 border-1.5 sm:border-2 border-emerald-600/40 shadow-xl sm:shadow-2xl flex items-center justify-center">
-                  
-                  {/* Status Overlay Header */}
-                  <div className="absolute top-2.5 left-2.5 right-2.5 sm:top-4 sm:left-4 sm:right-4 z-20 flex items-center justify-between pointer-events-none">
-                    
-                    
-                  </div>
-
-                  {/* The Video (Square View) */}
-                  <video
-                    src="/mk_logo_video.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    disablePictureInPicture
-                    controlsList="nodownload nofullscreen noremoteplayback"
-                    className="w-full h-full object-cover"
-                    aria-label="MK Security Systems brand video presentation"
-                  />
-
-                  {/* Tech Corner Decorative Brackets */}
-                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-3 h-3 sm:w-4 sm:h-4 border-t-2 border-l-2 border-emerald-400 pointer-events-none" />
-                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-3 h-3 sm:w-4 sm:h-4 border-t-2 border-r-2 border-emerald-400 pointer-events-none" />
-                  <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 w-3 h-3 sm:w-4 sm:h-4 border-b-2 border-l-2 border-emerald-400 pointer-events-none" />
-                  <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 w-3 h-3 sm:w-4 sm:h-4 border-b-2 border-r-2 border-emerald-400 pointer-events-none" />
-
-                  {/* Subtle Bottom Gradient for Caption */}
-                  <div className="absolute bottom-0 inset-x-0 p-2 sm:p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-between text-white z-20">
-                    
-                    <Link
-                      to="/gallery"
-                      className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] text-emerald-400 hover:text-emerald-300 font-semibold shrink-0"
-                    >
-                      <span>Gallery</span>
-                      <ExternalLink size={10} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
+      {/* ═══════════════════════════════════════════════════════════════
+          1. IMMERSIVE HERO CAROUSEL
+      ═══════════════════════════════════════════════════════════════ */}
+      <HeroCarousel />
 
       {/* ─── Tech Division Line ─── */}
       <div className="tech-divider" />
 
-      {/* ─── Core Architecture & Features Strip ─── */}
+      {/* ═══════════════════════════════════════════════════════════════
+          2. CORE ARCHITECTURE (Staggered Cards)
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="section-padding bg-[#F8FAFC]">
         <div className="container-custom">
           <SectionHeading
@@ -242,9 +162,9 @@ export default function Home() {
             description="Every component is thoroughly tested and configured to communicate seamlessly over high-reliability wireless protocols."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {corePillars.map((p, i) => (
-              <ScrollReveal key={p.title} variant="fade-up" delay={i * 0.08}>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {corePillars.map((p) => (
+              <motion.div key={p.title} variants={staggerItemVariants}>
                 <div className="card-tech p-4 sm:p-6 h-full flex flex-col justify-between group hover:border-[#0D5C3A]">
                   <div>
                     <div className="flex items-center justify-between mb-3 sm:mb-5">
@@ -274,79 +194,54 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-              </ScrollReveal>
+              </motion.div>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* ─── High-Contrast Dark Showcase Section ─── */}
-      <section className="py-12 sm:py-20 bg-[#071911] text-white relative overflow-hidden bg-grid-pattern-dark">
-        <div className="container-custom relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-12 mb-8 sm:mb-16">
-            <div className="max-w-xl text-center lg:text-left">
-              <span className="inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4">
-                Enterprise & Industrial Grade
-              </span>
-              <h2 className="font-heading font-black text-xl sm:text-3xl lg:text-4xl text-white tracking-tight mb-2 sm:mb-4">
-                Uncompromising Protection & Seamless Control
-              </h2>
-              <p className="text-slate-300 text-xs sm:text-base leading-relaxed">
-                Whether retrofitting a heritage villa or automating a high-throughput industrial facility, Shri MK Embedded Solutions delivers robust, fault-tolerant infrastructure built for 24/7 operation.
-              </p>
-            </div>
+      {/* ═══════════════════════════════════════════════════════════════
+          3. HOW IT WORKS — Process Timeline
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-14 sm:py-20 bg-white relative overflow-hidden">
+        <div className="container-custom">
+          <SectionHeading
+            label="Our Process"
+            title="From Survey to 24/7 Protection in 4 Steps"
+            description="A streamlined, transparent workflow built on a decade of field experience across Andhra Pradesh."
+          />
 
-            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
-              <Link to="/contact" className="btn-accent">
-                <span>Request Custom Quote</span>
-                <ArrowRight size={15} />
-              </Link>
-              <Link
-                to="/verify"
-                className="px-3 py-1.5 sm:px-6 sm:py-3 rounded-md sm:rounded-lg bg-white/10 hover:bg-white/15 text-white font-semibold text-[11px] sm:text-sm border border-white/20 transition-all"
-              >
-                Verify Authenticity
-              </Link>
-            </div>
-          </div>
+          <div className="relative">
+            {/* Animated Connector Line (hidden on mobile, visible on lg+) */}
+            <div className="hidden lg:block timeline-connector" />
 
-          {/* 4 Feature Spec Cards in Dark Mode */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="card-tech-dark p-4 sm:p-6">
-              <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">01 / SECURITY</div>
-              <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Biometric Verification</h4>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                False acceptance rate under 0.0001% with 3D optical and capacitive live finger scanners.
-              </p>
-              <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">0.3s Unlock Speed</span>
-            </div>
+            <StaggerContainer
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+              stagger={0.12}
+            >
+              {processSteps.map((step) => (
+                <motion.div key={step.step} variants={staggerItemVariants} className="timeline-step">
+                  <div className="text-center group">
+                    {/* Step Circle */}
+                    <div className="relative mx-auto mb-5 sm:mb-6">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-emerald-50 border-2 border-emerald-200/80 flex items-center justify-center mx-auto group-hover:bg-[#0D5C3A] group-hover:border-[#0D5C3A] transition-all duration-500">
+                        <step.icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#0D5C3A] group-hover:text-white transition-colors duration-500" />
+                      </div>
+                      <span className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#0D5C3A] text-white text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center shadow-md shadow-emerald-800/20">
+                        {step.step}
+                      </span>
+                    </div>
 
-            <div className="card-tech-dark p-4 sm:p-6">
-              <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">02 / VISION</div>
-              <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">AI Color Night Vision</h4>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                F1.0 super-aperture lenses capturing full color in complete darkness with human shape filtering.
-              </p>
-              <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">24/7 Chromatic Fidelity</span>
-            </div>
-
-            <div className="card-tech-dark p-4 sm:p-6">
-              <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">03 / GATES</div>
-              <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Industrial Gate Motors</h4>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                Oil-bath lubricated gearboxes for heavy iron gates up to 2000kg with optical encoder anti-crush safety.
-              </p>
-              <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">Continuous Duty Cycle</span>
-            </div>
-
-            <div className="card-tech-dark p-4 sm:p-6">
-              <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">04 / ELECTRONICS</div>
-              <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">In-House PCB & IoT</h4>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                Custom circuit boards and firmware for proprietary industrial PLC triggers, relays, and robotics.
-              </p>
-              <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">FR4 Multi-Layer Quality</span>
-            </div>
+                    <h4 className="font-heading font-bold text-slate-900 text-base sm:text-lg mb-2">
+                      {step.title}
+                    </h4>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xs mx-auto">
+                      {step.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </StaggerContainer>
           </div>
         </div>
       </section>
@@ -354,7 +249,95 @@ export default function Home() {
       {/* ─── Tech Division Line ─── */}
       <div className="tech-divider" />
 
-      {/* ─── Featured Products Showcase (Working Stock Images) ─── */}
+      {/* ═══════════════════════════════════════════════════════════════
+          4. DARK SHOWCASE SECTION (with Parallax)
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-12 sm:py-20 bg-[#071911] text-white relative overflow-hidden bg-grid-pattern-dark">
+        <div className="container-custom relative z-10">
+          <ParallaxSection speed={0.08}>
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-12 mb-8 sm:mb-16">
+              <div className="max-w-xl text-center lg:text-left">
+                <span className="inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 sm:mb-4">
+                  Enterprise & Industrial Grade
+                </span>
+                <h2 className="font-heading font-black text-xl sm:text-3xl lg:text-4xl text-white tracking-tight mb-2 sm:mb-4">
+                  Uncompromising Protection & Seamless Control
+                </h2>
+                <p className="text-slate-300 text-xs sm:text-base leading-relaxed">
+                  Whether retrofitting a heritage villa or automating a high-throughput industrial facility, Shri MK Embedded Solutions delivers robust, fault-tolerant infrastructure built for 24/7 operation.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
+                <Link to="/contact" className="btn-accent">
+                  <span>Request Custom Quote</span>
+                  <ArrowRight size={15} />
+                </Link>
+                <Link
+                  to="/verify"
+                  className="px-3 py-1.5 sm:px-6 sm:py-3 rounded-md sm:rounded-lg bg-white/10 hover:bg-white/15 text-white font-semibold text-[11px] sm:text-sm border border-white/20 transition-all"
+                >
+                  Verify Authenticity
+                </Link>
+              </div>
+            </div>
+          </ParallaxSection>
+
+          {/* 4 Feature Spec Cards in Dark Mode */}
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" stagger={0.1}>
+            <motion.div variants={staggerItemVariants}>
+              <div className="card-tech-dark p-4 sm:p-6">
+                <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">01 / SECURITY</div>
+                <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Biometric Verification</h4>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+                  False acceptance rate under 0.0001% with 3D optical and capacitive live finger scanners.
+                </p>
+                <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">0.3s Unlock Speed</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={staggerItemVariants}>
+              <div className="card-tech-dark p-4 sm:p-6">
+                <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">02 / VISION</div>
+                <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">AI Color Night Vision</h4>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+                  F1.0 super-aperture lenses capturing full color in complete darkness with human shape filtering.
+                </p>
+                <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">24/7 Chromatic Fidelity</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={staggerItemVariants}>
+              <div className="card-tech-dark p-4 sm:p-6">
+                <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">03 / GATES</div>
+                <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Industrial Gate Motors</h4>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+                  Oil-bath lubricated gearboxes for heavy iron gates up to 2000kg with optical encoder anti-crush safety.
+                </p>
+                <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">Continuous Duty Cycle</span>
+              </div>
+            </motion.div>
+
+            <motion.div variants={staggerItemVariants}>
+              <div className="card-tech-dark p-4 sm:p-6">
+                <div className="text-emerald-400 font-mono text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">04 / ELECTRONICS</div>
+                <h4 className="text-white font-bold text-base sm:text-lg mb-1.5 sm:mb-2">In-House PCB & IoT</h4>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+                  Custom circuit boards and firmware for proprietary industrial PLC triggers, relays, and robotics.
+                </p>
+                <span className="text-[11px] sm:text-xs text-emerald-400 font-mono">FR4 Multi-Layer Quality</span>
+              </div>
+            </motion.div>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ─── Tech Division Line ─── */}
+      <div className="tech-divider" />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          5. FEATURED PRODUCTS SHOWCASE
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionHeading
@@ -363,9 +346,9 @@ export default function Home() {
             description="Discover field-tested smart hardware installed in over 500 prestigious homes and commercial enterprises across Andhra Pradesh."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-            {featuredProducts.map((prod, i) => (
-              <ScrollReveal key={prod.name} variant="fade-up" delay={i * 0.08}>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8" stagger={0.08}>
+            {featuredProducts.map((prod) => (
+              <motion.div key={prod.name} variants={staggerItemVariants}>
                 <div className="card-tech overflow-hidden flex flex-col h-full group hover:shadow-xl">
                   {/* Stock Photo Container with High Quality Unsplash Photo */}
                   <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden bg-slate-100">
@@ -416,9 +399,9 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </ScrollReveal>
+              </motion.div>
             ))}
-          </div>
+          </StaggerContainer>
 
           <div className="mt-8 sm:mt-12 text-center">
             <Link
@@ -432,28 +415,135 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Animated Live Stats Strip ─── */}
+      {/* ═══════════════════════════════════════════════════════════════
+          6. TRUSTED BY — Infinite Marquee
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-6 sm:py-10 bg-[#F8FAFC] border-y border-slate-200/80 overflow-hidden">
+        <div className="marquee-track">
+          {/* Duplicate badges for seamless loop */}
+          {[...trustBadges, ...trustBadges].map((badge, i) => (
+            <div
+              key={`${badge.text}-${i}`}
+              className="flex items-center gap-2 sm:gap-2.5 px-5 sm:px-8 py-2 whitespace-nowrap"
+            >
+              <badge.icon size={16} className="text-[#0D5C3A] shrink-0" />
+              <span className="text-xs sm:text-sm font-semibold text-slate-700 tracking-wide">
+                {badge.text}
+              </span>
+              <span className="text-slate-300 mx-2 sm:mx-4">•</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          7. ANIMATED LIVE STATS STRIP (with Parallax)
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 sm:py-16 bg-[#071911] text-white border-y border-[#14452F]">
         <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
-            {stats.map((s, i) => (
-              <ScrollReveal key={s.label} variant="fade-up" delay={i * 0.1}>
-                <div className="p-2 sm:p-4 rounded-xl hover:bg-white/5 transition-colors">
-                  <s.icon className="w-5 h-5 sm:w-7 sm:h-7 mx-auto mb-2 text-emerald-400" />
-                  <div className="font-heading text-2xl sm:text-3xl lg:text-5xl font-black text-white mb-1">
-                    <AnimatedCounter end={s.value} suffix={s.suffix} />
+          <ParallaxSection speed={0.06}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
+              {stats.map((s, i) => (
+                <ScrollReveal key={s.label} variant="blur-up" delay={i * 0.1}>
+                  <div className="p-2 sm:p-4 rounded-xl hover:bg-white/5 transition-colors">
+                    <s.icon className="w-5 h-5 sm:w-7 sm:h-7 mx-auto mb-2 text-emerald-400" />
+                    <div className="font-heading text-2xl sm:text-3xl lg:text-5xl font-black text-white mb-1">
+                      <AnimatedCounter end={s.value} suffix={s.suffix} />
+                    </div>
+                    <p className="text-slate-300 font-medium text-[10px] sm:text-xs uppercase tracking-wider font-mono">
+                      {s.label}
+                    </p>
                   </div>
-                  <p className="text-slate-300 font-medium text-[10px] sm:text-xs uppercase tracking-wider font-mono">
-                    {s.label}
+                </ScrollReveal>
+              ))}
+            </div>
+          </ParallaxSection>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          8. BEFORE & AFTER TRANSFORMATION SHOWCASE
+      ═══════════════════════════════════════════════════════════════ */}
+      <section className="section-padding bg-white overflow-hidden">
+        <div className="container-custom">
+          <SectionHeading
+            label="The MK Transformation"
+            title="From Outdated to Intelligent — See the Difference"
+            description="Experience the stark contrast between conventional security and our premium smart automation installations."
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            {/* BEFORE Card */}
+            <ScrollReveal variant="slide-right" delay={0}>
+              <div className="before-after-card relative h-64 sm:h-80 lg:h-[420px] bg-slate-900 border border-slate-700/50 group">
+                <img
+                  src="/before_security.jpg"
+                  alt="Traditional security setup with exposed wiring and basic padlock"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20" />
+
+                {/* Label */}
+                <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/40 text-red-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest">
+                    Before
+                  </span>
+                </div>
+
+                {/* Bottom Content */}
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                  <h4 className="text-white font-heading font-bold text-base sm:text-xl mb-1 sm:mb-2">
+                    Conventional Security
+                  </h4>
+                  <p className="text-slate-400 text-[11px] sm:text-sm leading-relaxed max-w-sm">
+                    Exposed wiring, basic padlocks, analog cameras with no night vision, and manually operated gates.
                   </p>
                 </div>
-              </ScrollReveal>
-            ))}
+              </div>
+            </ScrollReveal>
+
+            {/* AFTER Card */}
+            <ScrollReveal variant="fade-right" delay={0.15}>
+              <div className="before-after-card relative h-64 sm:h-80 lg:h-[420px] bg-slate-900 border border-emerald-600/30 group">
+                <img
+                  src="/after_security.jpg"
+                  alt="Modern smart home with biometric locks, 4K cameras, and smart touch panels"
+                  className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071911]/90 via-[#071911]/30 to-transparent" />
+
+                {/* Label */}
+                <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest">
+                    <Sparkles size={12} />
+                    After
+                  </span>
+                </div>
+
+                {/* Bottom Content */}
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                  <h4 className="text-white font-heading font-bold text-base sm:text-xl mb-1 sm:mb-2">
+                    MK Smart Automation
+                  </h4>
+                  <p className="text-slate-300 text-[11px] sm:text-sm leading-relaxed max-w-sm">
+                    Biometric access, 4K AI cameras, motorized gates, capacitive touch switches — all concealed wiring.
+                  </p>
+                </div>
+
+                {/* Glow Accent */}
+                <div className="absolute -bottom-4 -right-4 w-40 h-40 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ─── Bottom CTA Banner ─── */}
+      {/* ─── Tech Division Line ─── */}
+      <div className="tech-divider" />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          9. BOTTOM CTA BANNER
+      ═══════════════════════════════════════════════════════════════ */}
       <section className="section-padding bg-[#F8FAFC]">
         <div className="container-custom">
           <ScrollReveal variant="scale-up">

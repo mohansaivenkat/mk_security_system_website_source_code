@@ -31,6 +31,18 @@ const variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1 },
   },
+  'blur-up': {
+    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+    visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+  },
+  'slide-right': {
+    hidden: { opacity: 0, x: -60 },
+    visible: { opacity: 1, x: 0 },
+  },
+  'rotate-in': {
+    hidden: { opacity: 0, rotate: -3, scale: 0.95 },
+    visible: { opacity: 1, rotate: 0, scale: 1 },
+  },
 };
 
 export default function ScrollReveal({

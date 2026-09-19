@@ -451,6 +451,32 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
+/* ─── Golden Ratio Design System ─── */
+:root {
+  --phi: 1.618;
+
+  /* φ-based Typography Scale (base 16px) */
+  --phi-type-xs: 0.75rem;        /* 12px */
+  --phi-type-sm: 0.875rem;       /* 14px */
+  --phi-type-base: 1rem;         /* 16px */
+  --phi-type-lg: 1.618rem;       /* 25.9px  = base × φ */
+  --phi-type-xl: 2.618rem;       /* 41.9px  = base × φ² */
+  --phi-type-2xl: 4.236rem;      /* 67.8px  = base × φ³ */
+
+  /* φ-based Spacing Scale */
+  --phi-space-xs: 0.618rem;      /* ~9.9px */
+  --phi-space-sm: 1rem;          /* 16px */
+  --phi-space-md: 1.618rem;      /* 25.9px */
+  --phi-space-lg: 2.618rem;      /* 41.9px */
+  --phi-space-xl: 4.236rem;      /* 67.8px */
+  --phi-space-2xl: 6.854rem;     /* 109.7px */
+
+  /* φ-based Section Padding */
+  --phi-section-sm: 3rem;
+  --phi-section-md: 4.854rem;
+  --phi-section-lg: 7.854rem;
+}
+
 /* ─── Animations ─── */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -475,3 +501,80 @@
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
 }
+
+/* ─── Marquee / Ticker Animation ─── */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Timeline Connector ─── */
+.timeline-connector {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(16, 185, 129, 0.25) 10%,
+    rgba(16, 185, 129, 0.5) 50%,
+    rgba(16, 185, 129, 0.25) 90%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+.timeline-step {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Before & After Showcase ─── */
+.before-after-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.before-after-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.before-after-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.before-after-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ─── Hero Carousel Overrides ─── */
+.hero-carousel .carousel-dot {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+/* ─── Non-home pages top padding (since we removed from Layout) ─── */
+.page-with-top-padding {
+  padding-top: 5rem;
+}
+

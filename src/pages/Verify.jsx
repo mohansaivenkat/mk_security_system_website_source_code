@@ -44,7 +44,7 @@ export default function Verify() {
   };
 
   return (
-    <div className="bg-[#F8FAFC]">
+    <div className="bg-[#F8FAFC] pt-20">
       {/* ─── Hero Banner ─── */}
       <section className="relative pt-20 pb-10 sm:pt-32 sm:pb-20 bg-[#071911] text-white border-b border-[#14452F] overflow-hidden bg-grid-pattern-dark">
         <div className="container-custom text-center relative z-10">
@@ -53,12 +53,12 @@ export default function Verify() {
               Official Certification Check
             </span>
           </ScrollReveal>
-          <ScrollReveal variant="fade-up" delay={0.1}>
+          <ScrollReveal variant="blur-up" delay={0.1}>
             <h1 className="font-heading font-black text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight mb-3 sm:mb-6 max-w-3xl mx-auto">
               Credential & Intern Verification
             </h1>
           </ScrollReveal>
-          <ScrollReveal variant="fade-up" delay={0.2}>
+          <ScrollReveal variant="blur-up" delay={0.2}>
             <p className="text-slate-300 text-xs sm:text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               Authenticate authorized intern credentials and training certificates issued by Shri MK Embedded Solutions.
             </p>
