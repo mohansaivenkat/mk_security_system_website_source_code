@@ -196,7 +196,7 @@ export default function Contact() {
               <div className="bg-surface rounded-2xl p-3 card-shadow h-full min-h-[400px]">
                 <div className="map-container w-full h-full min-h-[380px] rounded-xl overflow-hidden">
                   <iframe
-                    title="MK Security Systems Location"
+                    title="SHRI MK EMBEDDED SOLUTIONS Location"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.263!2d83.32!3d17.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcf15c5c25d0e9b40!2sShri+MK+Embedded+Solutions!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                     width="100%"
                     height="100%"

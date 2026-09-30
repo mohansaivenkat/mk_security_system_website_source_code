@@ -6,7 +6,7 @@ import {
   Zap, Users, Award, Clock, PhoneCall, CheckCircle,
   ArrowRight, Lock, Eye, Sparkles, MessageSquare,
   ClipboardCheck, PenTool, Wrench, HeadphonesIcon,
-  Star, BadgeCheck, Globe, TrendingUp,
+  Star, BadgeCheck, Globe, TrendingUp, Volume2, Radio
 } from 'lucide-react';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -46,44 +46,28 @@ const corePillars = [
 
 const featuredProducts = [
   {
-    icon: Lock,
-    name: 'Biometric & Smart Door Locks',
-    tag: 'Home & Commercial Access',
-    desc: 'Fingerprint, RFID card, PIN code, mechanical key, and smartphone app remote unlock with auto-relocking.',
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=700&h=500&fit=crop&q=80',
-    link: '/products#digital-locks',
-  },
-  {
-    icon: Eye,
-    name: '4K AI CCTV Surveillance',
-    tag: 'Full Color Night Vision',
-    desc: 'High-definition optical zoom cameras with human/vehicle classification, perimeter boundary tripwires, and cloud recording.',
-    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=700&h=500&fit=crop&q=80',
-    link: '/products#cctv',
+    icon: Smartphone,
+    name: 'Smart Home Automation',
+    tag: 'Touch Panels & IoT',
+    desc: 'Capacitive tempered glass panels, automated lighting, climate control, curtain motors, and mobile app voice synchronization.',
+    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=700&h=500&fit=crop&q=80',
+    link: '/products#automation',
   },
   {
     icon: DoorOpen,
-    name: 'Automatic Sliding & Swing Gates',
+    name: 'Automatic Gate Automation',
     tag: 'Heavy Duty Motors',
-    desc: 'Italian motor gate automation supporting up to 2000kg with infrared safety obstacle sensors and wireless remote control.',
+    desc: 'Italian motor gate automation supporting sliding & swing gates up to 2000kg with infrared safety obstacle sensors and wireless remotes.',
     image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=700&h=500&fit=crop&q=80',
     link: '/products#entrance',
   },
   {
-    icon: Zap,
-    name: 'Boom Barriers & RFID Access',
-    tag: 'Gated Communities & Factories',
-    desc: 'High-speed automated boom barriers with FASTag / RFID long-range vehicle readers and solar backup capability.',
-    image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=700&h=500&fit=crop&q=80',
-    link: '/products#entrance',
-  },
-  {
-    icon: Smartphone,
-    name: 'Smart Touch Switches & IoT',
-    tag: 'Capacitive Glass Panels',
-    desc: 'Tempered luxury glass capacitive touch panels with multi-scene dimming, Alexa & Google Assistant voice control.',
-    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=700&h=500&fit=crop&q=80',
-    link: '/products#home-automation',
+    icon: Shield,
+    name: '4K AI CCTV & Security',
+    tag: 'Full Color Night Vision',
+    desc: 'Ultra-HD optical zoom surveillance with human/vehicle classification, perimeter boundary tripwires, and biometric digital locks.',
+    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=700&h=500&fit=crop&q=80',
+    link: '/products#security',
   },
   {
     icon: Tv,
@@ -92,6 +76,22 @@ const featuredProducts = [
     desc: 'Custom acoustic wall panels, 4K laser projection, and calibrated 7.2.4 Dolby Atmos surround sound engineering.',
     image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=700&h=500&fit=crop&q=80',
     link: '/products#theaters',
+  },
+  {
+    icon: Volume2,
+    name: 'Multiroom Audio Systems',
+    tag: 'Whole-Home Hi-Fi Sound',
+    desc: 'Synchronized multi-zone audio streaming with architectural frameless in-ceiling speakers and wireless smartphone control.',
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=700&h=500&fit=crop&q=80',
+    link: '/products#audio',
+  },
+  {
+    icon: Radio,
+    name: 'Different Standalone Sensors',
+    tag: 'Smart Safety Ecosystem',
+    desc: 'PIR motion presence radar, LPG gas leak detectors, smoke alarms, door/window magnetic contacts, and water flood alerts.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&h=500&fit=crop&q=80',
+    link: '/products#sensors',
   },
 ];
 
@@ -264,7 +264,7 @@ export default function Home() {
                   Uncompromising Protection & Seamless Control
                 </h2>
                 <p className="text-slate-300 text-xs sm:text-base leading-relaxed">
-                  Whether retrofitting a heritage villa or automating a high-throughput industrial facility, Shri MK Embedded Solutions delivers robust, fault-tolerant infrastructure built for 24/7 operation.
+                  Whether retrofitting a heritage villa or automating a high-throughput industrial facility, SHRI MK EMBEDDED SOLUTIONS delivers robust, fault-tolerant infrastructure built for 24/7 operation.
                 </p>
               </div>
 
@@ -576,7 +576,7 @@ export default function Home() {
                   </Link>
 
                   <a
-                    href="https://wa.me/918919890010?text=Hello%20MK%20Security%20Systems,%20I%20would%20like%20to%20request%20a%20site%20inspection"
+                    href="https://wa.me/918919890010?text=Hello%20SHRI%20MK%20EMBEDDED%20SOLUTIONS,%20I%20would%20like%20to%20request%20a%20site%20inspection"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-8 sm:py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-[11px] sm:text-sm rounded-lg sm:rounded-xl shadow-sm transition-all"

@@ -7,19 +7,20 @@ const quickLinks = [
   { name: 'About Us', path: '/about' },
   { name: 'Products Catalog', path: '/products' },
   { name: 'Services & Support', path: '/services' },
-  { name: 'Verify Products', path: '/verify' },
+  { name: 'Academics & Projects', path: '/academics' },
+  { name: 'Verify Credentials', path: '/verify' },
   { name: 'Project Gallery', path: '/gallery' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
 const productLinks = [
-  { name: 'Smart Home Automation', path: '/products#home-automation' },
-  { name: 'Biometric & Digital Locks', path: '/products#digital-locks' },
-  { name: 'CCTV Surveillance Systems', path: '/products#cctv' },
-  { name: 'Automatic Sliding & Swing Gates', path: '/products#entrance' },
-  { name: 'Boom Barriers & Parking Access', path: '/products#entrance' },
-  { name: 'Industrial PLC Automation', path: '/products#industrial' },
+  { name: 'Smart Home Automation', path: '/products#automation' },
+  { name: 'Automatic Gate Automation', path: '/products#entrance' },
+  { name: 'CCTV & Security Systems', path: '/products#security' },
   { name: 'Dolby Atmos Home Theaters', path: '/products#theaters' },
+  { name: 'Multiroom Audio Systems', path: '/products#theaters' },
+  { name: 'Standalone Sensors', path: '/products#sensors' },
+  { name: 'Industrial PLC & Robotics', path: '/products#industrial' },
 ];
 
 export default function Footer() {
@@ -68,7 +69,7 @@ export default function Footer() {
               <BrandLogo variant="light" size="default" className="hidden sm:flex" />
             </Link>
             <p className="text-slate-300 text-[11px] sm:text-xs leading-relaxed mb-4">
-              <strong className="text-white font-semibold">Shri MK Embedded Solutions</strong> — Transforming residences, commercial complexes, and industrial plants with intelligent automation, CCTV, and embedded robotics since 2015.
+              <strong className="text-white font-semibold">SHRI MK EMBEDDED SOLUTIONS</strong> — where life made easier. Transforming residences, commercial complexes, and industrial plants with intelligent automation, CCTV, and embedded robotics since 2015.
             </p>
             <div className="flex items-center gap-2 text-[10px] sm:text-xs text-emerald-400 font-mono">
               <CheckCircle size={13} />
@@ -151,7 +152,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] sm:text-xs text-slate-400 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Shri MK Embedded Solutions (MK Security Systems). All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SHRI MK EMBEDDED SOLUTIONS — where life made easier. All rights reserved.</p>
           <div className="flex items-center gap-4 sm:gap-6">
             <Link to="/verify" className="hover:text-emerald-400 transition-colors">Verify Authenticity</Link>
             <Link to="/contact" className="hover:text-emerald-400 transition-colors">Support & Warranty</Link>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Home, Shield, DoorOpen, Factory, Tv,
-  Smartphone, Layers, Plug, Radio,
+  Smartphone, Layers, Plug, Radio, Volume2,
   Camera, DoorClosed, Lock, Bell, Fence, Search,
   ArrowRight, CheckCircle, Download, PhoneCall, ExternalLink,
   Filter, Sparkles
@@ -18,9 +18,34 @@ const categories = [
     icon: Sparkles,
   },
   {
+    id: 'automation',
+    name: 'Home Automation',
+    icon: Home,
+  },
+  {
+    id: 'entrance',
+    name: 'Gate Automation',
+    icon: DoorOpen,
+  },
+  {
     id: 'security',
-    name: 'Security & CCTV',
+    name: 'CCTV & Security',
     icon: Shield,
+  },
+  {
+    id: 'theaters',
+    name: 'Home Theaters',
+    icon: Tv,
+  },
+  {
+    id: 'audio',
+    name: 'Multiroom Audio',
+    icon: Volume2,
+  },
+  {
+    id: 'sensors',
+    name: 'Standalone Sensors',
+    icon: Radio,
   },
   {
     id: 'locks',
@@ -28,24 +53,9 @@ const categories = [
     icon: Lock,
   },
   {
-    id: 'entrance',
-    name: 'Gates & Barriers',
-    icon: DoorOpen,
-  },
-  {
-    id: 'automation',
-    name: 'Smart Automation',
-    icon: Home,
-  },
-  {
     id: 'industrial',
     name: 'Industrial & Robotics',
     icon: Factory,
-  },
-  {
-    id: 'theaters',
-    name: 'Home Theaters',
-    icon: Tv,
   },
 ];
 
@@ -139,6 +149,56 @@ const productCatalog = [
     specs: ['4K HDR Laser Projection', 'Dolby Atmos 7.2.4', 'Soundproof Wall Panelling', 'Motorized Recliner Control'],
     desc: 'Complete acoustic treatment, hidden architectural speakers, fiber-optic star ceilings, and smart lighting synced to film playback.',
     badge: 'Cinema Grade',
+  },
+  {
+    id: 'multiroom-audio-hub',
+    category: 'audio',
+    name: 'Multiroom Hi-Fi Audio Streaming Hub',
+    subtitle: 'Synchronized Multi-Zone Wireless Architectural Sound',
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=700&h=500&fit=crop&q=80',
+    specs: ['AirPlay 2 / Spotify Connect', 'High-Res 24-bit DAC', 'Multi-Zone Control', 'Class-D 100W/Ch'],
+    desc: 'Lossless audio streaming distribution enabling synchronized music playback throughout living areas, bedrooms, home theaters, and outdoor patios.',
+    badge: 'Hi-Fi Audio',
+  },
+  {
+    id: 'in-ceiling-speakers',
+    category: 'audio',
+    name: 'Frameless In-Ceiling Architectural Speakers',
+    subtitle: 'Discreet Flush-Mount Kevlar Cone Audio Speakers',
+    image: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700&h=500&fit=crop&q=80',
+    specs: ['8-Inch Kevlar Woofer', 'Pivoting Titanium Tweeter', 'Magnetic Zero-Bezel Grill', 'Moisture Resistant'],
+    desc: 'High-fidelity flush-mount ceiling speakers with magnetic paintable grills for room-filling sound with zero architectural footprint.',
+    badge: 'Architectural',
+  },
+  {
+    id: 'standalone-radar-sensor',
+    category: 'sensors',
+    name: 'Smart PIR Motion & Microwave Radar Sensor',
+    subtitle: 'Micro-Motion & Presence Detection with Zero False Alarms',
+    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=700&h=500&fit=crop&q=80',
+    specs: ['Dual PIR + 24GHz Radar', '12m 120° Wide Coverage', 'Zigbee 3.0 / Battery-Free', 'Illuminance Sensor'],
+    desc: 'Detects micro-movements like breathing and typing. Triggers automated lighting, air conditioning, and security alarms seamlessly.',
+    badge: 'Sensor Tech',
+  },
+  {
+    id: 'gas-smoke-sensor',
+    category: 'sensors',
+    name: 'Standalone LPG Gas Leak & Smoke Alarm',
+    subtitle: 'Instant Dual-Sensing Hazard Alert with Auto Solenoid Shutoff',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=700&h=500&fit=crop&q=80',
+    specs: ['85dB Loud Siren', 'LPG / Methane Detection', 'Photoelectric Smoke Chamber', 'Gas Valve Solenoid Port'],
+    desc: 'Standalone safety sensor that sounds a piercing 85dB siren and automatically shuts off the gas regulator pipe while sending push notifications.',
+    badge: 'Life Safety',
+  },
+  {
+    id: 'door-window-sensor',
+    category: 'sensors',
+    name: 'Magnetic Door & Window Contact Sensor',
+    subtitle: 'Ultra-Compact Perimeter Intrusion & Status Monitor',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&h=500&fit=crop&q=80',
+    specs: ['2-Year Battery Life', 'Tamper Switch Alert', 'Anti-Corrosive Contacts', 'Instant Push Trigger'],
+    desc: 'Mounts on main doors, balcony sliders, French windows, and locker safes to trigger entry lighting or sound security alarms upon opening.',
+    badge: 'Perimeter',
   },
 ];
 

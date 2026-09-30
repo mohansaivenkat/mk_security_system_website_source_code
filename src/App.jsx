@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Verify from './pages/Verify';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import Academics from './pages/Academics';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
         <Route path="services" element={<Services />} />
+        <Route path="academics" element={<Academics />} />
         <Route path="verify" element={<Verify />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="contact" element={<Contact />} />

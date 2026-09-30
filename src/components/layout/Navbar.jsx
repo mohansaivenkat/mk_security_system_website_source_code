@@ -9,6 +9,7 @@ const navLinks = [
   { name: 'About', path: '/about' },
   { name: 'Products', path: '/products' },
   { name: 'Services', path: '/services' },
+  { name: 'Academics', path: '/academics' },
   { name: 'Verify', path: '/verify' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
@@ -52,33 +53,33 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-2.5 sm:top-3.5 left-1/2 -translate-x-1/2 z-[9990] w-[94%] max-w-6xl rounded-xl sm:rounded-2xl transition-all duration-300 ${
+        className={`fixed top-2.5 sm:top-3.5 left-1/2 -translate-x-1/2 z-[9990] w-[95%] max-w-7xl rounded-xl sm:rounded-2xl transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-lg border border-slate-200'
             : 'bg-white/90 backdrop-blur-md shadow-sm border border-slate-200/80'
         }`}
       >
-        <div className="flex items-center justify-between px-3 py-2 sm:px-5 sm:py-2.5">
+        <div className="flex items-center justify-between px-3 py-2 sm:px-4 md:px-5 sm:py-2.5">
           {/* Brand Logo with MK letters */}
           <Link
             to="/"
             onClick={handleLinkClick}
-            className="group flex items-center shrink-0"
-            aria-label="MK Security Home"
+            className="group flex items-center shrink-0 mr-1 sm:mr-3"
+            aria-label="SHRI MK EMBEDDED SOLUTIONS Home"
           >
             <BrandLogo variant="dark" size="small" className="sm:hidden" />
             <BrandLogo variant="dark" size="default" className="hidden sm:flex" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative px-3.5 py-1.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                  className={`relative px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-semibold rounded-lg transition-all duration-200 ${
                     isActive
                       ? 'text-[#0D5C3A] bg-emerald-50'
                       : 'text-slate-700 hover:text-[#0D5C3A] hover:bg-slate-100/80'
@@ -88,7 +89,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 w-5 rounded-full bg-[#0D5C3A]"
+                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 w-4 xl:w-5 rounded-full bg-[#0D5C3A]"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}

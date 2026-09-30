@@ -3,67 +3,67 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import {
   ChevronLeft, ChevronRight, Pause, Play,
-  Lock, Eye, DoorOpen, Zap, Smartphone, Tv,
+  Home, DoorOpen, Shield, Tv, Volume2, Radio,
 } from 'lucide-react';
 
 const slides = [
   {
-    icon: Lock,
-    badge: 'Smart Access Control',
-    headline: 'Biometric & Smart Door Locks',
-    sub: 'Fingerprint, RFID, PIN & smartphone-unlocked security — guarding every entry point with military precision.',
+    icon: Home,
+    badge: 'Smart Living & IoT',
+    headline: 'Home Automation',
+    sub: 'Transform your living space with luxury capacitive touch switches, smart lighting scenes, climate regulation, automated curtains, and voice control.',
     image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1920&h=1080&fit=crop&q=85',
-    mobileImage: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1920&h=1080&fit=crop&q=85',
-    cta: '/products#digital-locks',
-  },
-  {
-    icon: Eye,
-    badge: '4K AI Surveillance',
-    headline: 'Full Color Night Vision CCTV',
-    sub: 'Human & vehicle classification with F1.0 super-aperture lenses capturing vivid color in total darkness.',
-    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&h=1080&fit=crop&q=85',
-    mobileImage: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&h=1080&fit=crop&q=85',
-    cta: '/products#cctv',
+    mobileImage: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=750&h=1334&fit=crop&q=80',
+    cta: '/products#automation',
   },
   {
     icon: DoorOpen,
-    badge: 'Gate Automation',
-    headline: 'Automatic Sliding & Swing Gates',
-    sub: 'Italian motor automation for gates up to 2 000 kg with infrared safety sensors and wireless control.',
+    badge: 'Motorized Entrance Systems',
+    headline: 'Gate Automation',
+    sub: 'Heavy-duty Italian sliding and swing gate motors engineered for smooth operation up to 2000kg with obstacle infrared safety sensors and wireless remotes.',
     image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=1920&h=1080&fit=crop&q=85',
     mobileImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=750&h=1334&fit=crop&q=80',
     cta: '/products#entrance',
   },
   {
-    icon: Zap,
-    badge: 'Perimeter Security',
-    headline: 'Boom Barriers & RFID Access',
-    sub: 'High-speed automated barriers with FASTag / RFID long-range vehicle readers and solar backup.',
-    image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=1920&h=1080&fit=crop&q=85',
-    mobileImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=750&h=1334&fit=crop&q=80',
-    cta: '/products#entrance',
-  },
-  {
-    icon: Smartphone,
-    badge: 'Smart Living',
-    headline: 'Touch Switches & IoT Panels',
-    sub: 'Capacitive glass touch panels with multi-scene dimming and Alexa & Google voice control.',
-    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1920&h=1080&fit=crop&q=85',
-    mobileImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=750&h=1334&fit=crop&q=80',
-    cta: '/products#home-automation',
+    icon: Shield,
+    badge: '24/7 AI Perimeter Defense',
+    headline: 'CCTV & Security',
+    sub: 'Ultra-HD 4K full-color night vision surveillance, human & vehicle AI classification, perimeter boundary tripwires, and smart biometric access locks.',
+    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&h=1080&fit=crop&q=85',
+    mobileImage: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=750&h=1334&fit=crop&q=85',
+    cta: '/products#security',
   },
   {
     icon: Tv,
-    badge: 'Acoustic Engineering',
-    headline: 'Dolby Atmos Home Theaters',
-    sub: 'Custom acoustic panels, 4K laser projection, and calibrated 7.2.4 Dolby Atmos surround sound.',
+    badge: 'Acoustic Cinema Engineering',
+    headline: 'Home Theaters',
+    sub: 'Bespoke private cinema rooms engineered with 4K UHD laser projection, acoustic fabric panelling, and calibrated 7.2.4 Dolby Atmos surround sound.',
     image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1920&h=1080&fit=crop&q=85',
     mobileImage: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=750&h=1334&fit=crop&q=80',
     cta: '/products#theaters',
   },
+  {
+    icon: Volume2,
+    badge: 'Synchronized Whole-Home Audio',
+    headline: 'Multiroom Audio',
+    sub: 'Stream high-fidelity, synchronized music throughout every room with architectural in-ceiling speakers, multi-zone amplifiers, and smartphone streaming.',
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=1920&h=1080&fit=crop&q=85',
+    mobileImage: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=750&h=1334&fit=crop&q=80',
+    cta: '/products#theaters',
+  },
+  {
+    icon: Radio,
+    badge: 'Intelligent Environmental Safety',
+    headline: 'Different Standalone Sensors',
+    sub: 'Comprehensive wireless safety sensors including PIR motion detectors, LPG gas leak monitors, smoke alarms, door/window contacts, and water flood alerts.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop&q=85',
+    mobileImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=750&h=1334&fit=crop&q=80',
+    cta: '/products#sensors',
+  },
 ];
 
-const SLIDE_DURATION = 2000; // 2 seconds
+const SLIDE_DURATION = 4000; // 4 seconds per slide
 
 /** Detects mobile viewport (≤ 768px) */
 function useIsMobile() {

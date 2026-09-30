@@ -5,48 +5,40 @@ export default function BrandLogo({ variant = 'dark', size = 'default', classNam
 
   const sizeStyles = {
     small: {
-      badge: 'w-7 h-7 text-xs',
+      img: 'h-8 sm:h-9 w-auto',
       title: 'text-xs sm:text-sm font-bold',
-      subtitle: 'text-[8px] sm:text-[9px] tracking-wider',
-      gap: 'gap-1.5 sm:gap-2',
+      tagline: 'text-[7.5px] sm:text-[8.5px] tracking-normal sm:tracking-wide',
+      gap: 'gap-2',
     },
     default: {
-      badge: 'w-8 h-8 sm:w-10 sm:h-10 text-sm sm:text-base',
-      title: 'text-sm sm:text-base font-bold',
-      subtitle: 'text-[9px] sm:text-[10px] tracking-wider sm:tracking-widest',
+      img: 'h-9 sm:h-11 w-auto',
+      title: 'text-xs sm:text-[13px] md:text-sm lg:text-[15px] font-bold',
+      tagline: 'text-[8px] sm:text-[9px] md:text-[10px] tracking-normal sm:tracking-wide',
       gap: 'gap-2 sm:gap-2.5',
     },
     large: {
-      badge: 'w-10 h-10 sm:w-12 sm:h-12 text-base sm:text-lg',
+      img: 'h-12 sm:h-14 w-auto',
       title: 'text-base sm:text-lg font-bold',
-      subtitle: 'text-[10px] sm:text-xs tracking-widest',
-      gap: 'gap-2.5 sm:gap-3',
+      tagline: 'text-[9.5px] sm:text-xs tracking-wide',
+      gap: 'gap-3',
     },
   }[size] || {
-    badge: 'w-8 h-8 sm:w-10 sm:h-10 text-sm sm:text-base',
-    title: 'text-sm sm:text-base font-bold',
-    subtitle: 'text-[9px] sm:text-[10px] tracking-wider sm:tracking-widest',
+    img: 'h-9 sm:h-11 w-auto',
+    title: 'text-xs sm:text-sm md:text-base font-bold',
+    tagline: 'text-[8px] sm:text-[9.5px] tracking-wide',
     gap: 'gap-2 sm:gap-2.5',
   };
 
   return (
     <div className={`flex items-center ${sizeStyles.gap} select-none ${className}`}>
-      {/* Engineered MK Hex/Shield Monogram Badge */}
-      <div
-        className={`relative flex items-center justify-center ${sizeStyles.badge} rounded-lg sm:rounded-xl font-heading font-black tracking-tighter shrink-0 shadow-sm sm:shadow-md transition-transform duration-300 group-hover:scale-105`}
-        style={{
-          background: 'linear-gradient(135deg, #0D5C3A 0%, #062819 100%)',
-          border: '1px solid rgba(16, 185, 129, 0.4)',
-          boxShadow: '0 2px 8px rgba(13, 92, 58, 0.2)',
-        }}
-      >
-        {/* Letters MK */}
-        <span className="relative z-10 text-white font-extrabold tracking-tight">
-          MK
-        </span>
-
-        {/* Status indicator dot */}
-        
+      {/* Official MK Logo from /mk_logo.png */}
+      <div className={`relative shrink-0 flex items-center justify-center ${isLight ? 'bg-white rounded-lg p-0.5 shadow-sm' : ''}`}>
+        <img
+          src="/mk_logo.png"
+          alt="SHRI MK EMBEDDED SOLUTIONS"
+          className={`${sizeStyles.img} object-contain transition-transform duration-300 group-hover:scale-105`}
+          loading="eager"
+        />
       </div>
 
       {/* Brand Text */}
@@ -57,21 +49,18 @@ export default function BrandLogo({ variant = 'dark', size = 'default', classNam
               isLight ? 'text-white' : 'text-slate-900'
             }`}
           >
-            MK SECURITY
-          </span>
-          <span className="text-emerald-600 font-heading font-bold text-[10px] sm:text-xs">
-            SYSTEMS
+            SHRI MK <span className="text-[#0D5C3A] dark:text-emerald-400 font-extrabold">EMBEDDED SOLUTIONS</span>
           </span>
         </div>
         <span
-          className={`font-mono font-medium uppercase ${sizeStyles.subtitle} ${
-            isLight ? 'text-emerald-400/90' : 'text-emerald-800'
+          className={`font-medium italic ${sizeStyles.tagline} ${
+            isLight ? 'text-emerald-400/90' : 'text-[#0D5C3A]'
           }`}
         >
-          <span className="hidden sm:inline">Smart Automation & Embedded Solutions</span>
-          <span className="sm:hidden">Automation & Security</span>
+          where life made easier
         </span>
       </div>
     </div>
   );
 }
+
